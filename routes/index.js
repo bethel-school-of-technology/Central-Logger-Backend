@@ -2,6 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
+router.get('/',(req,res,next) => {
+    
+});
+
+
 router.post('/home', (req, res, next) => {
     db.query(
         'INSERT INTO events (owner, name, description, date) VALUES (?,?,?,?)',
