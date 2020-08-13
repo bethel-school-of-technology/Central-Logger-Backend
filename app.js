@@ -11,6 +11,8 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
+app.set('view engine', 'hbs');
+
 app.use(bodyParser.json());
 app.use(cors());
 app.use(logger('dev'));
