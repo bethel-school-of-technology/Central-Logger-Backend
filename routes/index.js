@@ -1,25 +1,44 @@
 var express = require('express');
 var router = express.Router();
+let mysql = require('mysql2');
 
-/* GET home page. */
-router.get('/',(req,res,next) => {
-    
+let connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'Password1!', // Gotta put your MySQL password in
+    database: 'logs'
+});
+
+connection.connect(function (err) {
+    if (err) {
+        return console.error('error: ' + err.message);
+    }
+
+    console.log('Connected to the MySQL server.');
+});
+
+const query = `SELECT * from logs.testlogs`;
+
+connection.query(query, (err, results) => {
+    if (err) throw err;
+    console.log(results);
 });
 
 
-router.post('/home', (req, res, next) => {
-    db.query(
-        'INSERT INTO events (owner, name, description, date) VALUES (?,?,?,?)',
-        [owner, req.body.name, req.body.description, new Date(req.body.date)],
-        (error) => {
-            if (error) {
-                console.error(error);
-                res.status(500).json({ status: 'error' });
-            } else {
-                res.status(200).json({ status: 'ok' });
-            }
-        }
-    );
+
+
+/* GET home page. */
+router.get('/',(req,res,next) => {
+    res.render('index');
+});
+
+
+router.post('/home/:id', (req, res, next) => {
+    let logsId = parseInt(req.params.id);
+    console.log(actorId);
+
+    let idQuery = `SELECT * FROM actor WHERE actor_id=${logsId}`;
+    console.log(idQuery)
 });
 
 module.exports = router;
