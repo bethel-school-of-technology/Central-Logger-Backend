@@ -4,7 +4,7 @@ var cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 let cors = require('cors');
 var logger = require('morgan');
-
+var models = require('./models');
 
 var indexRouter = require('./routes/index');
 
@@ -21,5 +21,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+
+models.sequelize.sync().then(function () {
+    console.log("DB Sync'd up")
+});
 
 module.exports = app;

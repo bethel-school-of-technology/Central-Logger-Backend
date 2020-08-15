@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-let mysql = require('mysql2');
+let mysql2 = require('mysql2');
 
     //  Database connection
-let connection = mysql.createConnection({
+let connection = mysql2.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'Password1!', // Gotta put your MySQL password in
@@ -39,9 +39,9 @@ router.get('/',(req,res,next) => {
 
 router.post('/home/:id', (req, res, next) => {
     let logsId = parseInt(req.params.id);
-    console.log(actorId);
+    console.log(logsId);
 
-    let idQuery = `SELECT * FROM actor WHERE actor_id=${logsId}`;
+    let idQuery = `SELECT * FROM testlogs WHERE idtestLogs=${logsId}`;
     console.log(idQuery)
 });
 
