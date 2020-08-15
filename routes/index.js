@@ -36,13 +36,4 @@ router.get('/',(req,res,next) => {
     res.render('index');
 });
 
-
-router.post('/home/:id', (req, res, next) => {
-    let logsId = parseInt(req.params.id);
-    console.log(logsId);
-
-    let idQuery = `SELECT * FROM testlogs WHERE idtestLogs=${logsId}`;
-    console.log(idQuery)
-});
-
 module.exports = router;
