@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
-models.sequelize.sync().then(() => console.log("DB Sync'd up"));
+//models.sequelize.sync().then(() => console.log("DB Sync'd up"));
 
 module.exports = app;
 

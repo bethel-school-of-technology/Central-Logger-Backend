@@ -7,7 +7,7 @@ let connection = mysql2.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'Password1!', // Gotta put your MySQL password in
-    database: 'logs'
+    database: 'logs1'
 });
 
     //  Connects to database 
@@ -20,7 +20,7 @@ connection.connect(function (err) {
 });
 
     //  Runs SELECT ALL query
-const query = `SELECT * from logs.testlogs`;
+const query = `SELECT * from logs1.testlogs`;
 
     //  If query isn't found it throws an error
 connection.query(query, (err, results) => {
