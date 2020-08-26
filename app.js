@@ -4,7 +4,7 @@ var cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 let cors = require('cors');
 var logger = require('morgan');
-
+var models = require('./models');
 
 var indexRouter = require('./routes/index');
 
@@ -22,4 +22,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
+//models.sequelize.sync().then(() => console.log("DB Sync'd up"));
+
 module.exports = app;
+
+
+//  This is what I used to generate the sequelize files
+//  sequelize model:generate --name index --attributes idtestLogs:integer,level:integer,date:string,source:integer,eventId:integer,taskCategory:string --force
