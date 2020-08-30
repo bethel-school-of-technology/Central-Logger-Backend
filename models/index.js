@@ -1,5 +1,4 @@
 'use strict';
-<<<<<<< HEAD
 
 const fs = require('fs');
 const path = require('path');
@@ -36,7 +35,6 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
-=======
 const {
   Model
 } = require('sequelize');
@@ -64,4 +62,3 @@ module.exports = (sequelize, DataTypes) => {
   });
   return index;
 };
->>>>>>> ba1d6caec7be812403af49dffb3a586bd9c4e129
